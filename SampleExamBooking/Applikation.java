@@ -1,11 +1,14 @@
 package SampleExamBooking;
 
+import java.io.FileWriter;
+import java.util.List;
 import java.util.Random;
 
 import SampleExamBooking.Entities.Booking;
 import SampleExamBooking.Entities.CallCenterAgent;
 import SampleExamBooking.Entities.Customer;
 import SampleExamBooking.Entities.Person;
+import SampleExamBooking.Provided.Date;
 import SampleExamBooking.Utils.MyFileWriter;
 import SampleExamBooking.Utils.PersonComparator;
 import SampleExamBooking.Utils.PersonFormatter;
@@ -28,20 +31,21 @@ public class Applikation {
 	private static CallCenterAgent cca1;	
 	private static CallCenterAgent cca2;
 	
-	//File writer for Person types.
-	private static java.io.FileWriter 	fw;
-	
 	//The underlying stream for writing character files.
+	private static FileWriter 	fw;
+	
+	//File writer for Person types.
 	private static MyFileWriter<Person> 	mfw;
 	
-	//File writer for Person types.
+	//Person comparator.
 	private static PersonComparator 	pc;
 	
-	//Person comparator.
-	private static java.util.List<Person> 	persons;
-	
 	//List of person objects.
+	private static List<Person> 	persons;
+	
+	//Person formatter.
 	private static PersonFormatter 	pf;
+	
 	
 	
 	//Constructor
@@ -79,6 +83,7 @@ public class Applikation {
 	 */
 	public static void main(String[] args) {
 		
+				
 		Random random = new Random(); //generates random numbers
 		
 		b1 = new Booking(random.nextInt(1000));// between 0 && 1000
@@ -86,6 +91,8 @@ public class Applikation {
 		b3 = new Booking(random.nextInt(1000));
 		b4 = new Booking(random.nextInt(1000));
 		b5 = new Booking(random.nextInt(1000));
+		
+		
 		
 		
 		
