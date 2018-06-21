@@ -26,17 +26,12 @@ public class PersonFormatter implements IFormatter<Person>{
 	@Override
 	public String format(Person t) {
 		
-<<<<<<< HEAD
 		return String.format("%15.15s ", t.getName())+
 				String.format("- ID: %s ", t.getId())+
 				String.format("( %10.10s ) ->",t.getDateOfBirth())+
 				String.format("%02d booking(s)", t.getNoOfBookings())+
 				String.format("%s", t.getBookingsString());
-=======
-		return String.format("%15.15s ( ", t.getName())+
-				String.format("%10.10s ) ->",t.getDateOfBirth())+
-				String.format("%02d booking(s)", t.getNoOfBookings());
->>>>>>> 0076f71c85b4af8cdf9e2c1a08e6782b0da78953
+
 	}
 
 	
