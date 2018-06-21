@@ -26,9 +26,11 @@ public class PersonFormatter implements IFormatter<Person>{
 	@Override
 	public String format(Person t) {
 		
-		return String.format("%15.15s ( ", t.getName())+
-				String.format("%10d ) ->",t.getDateOfBirth())+
-				String.format("%02d booking(s)", t.getNoOfBookings());
+		return String.format("%15.15s ", t.getName())+
+				String.format("- ID: %s ", t.getId())+
+				String.format("( %10.10s ) ->",t.getDateOfBirth())+
+				String.format("%02d booking(s)", t.getNoOfBookings())+
+				String.format("%s", t.getBookingsString());
 	}
 
 	

@@ -34,6 +34,7 @@ public class MyFileWriter<T> {
 	public MyFileWriter(FileWriter file, IFormatter<T> format) {
 		
 		if(file != null && format != null) {
+			System.out.print(file.toString());
 			this.out = file;
 			this.format = format;
 		}else throw new IllegalArgumentException();
@@ -51,16 +52,20 @@ public class MyFileWriter<T> {
 	 */
 	public final boolean put(T t) {
 		
-		try {
-			BufferedWriter myBufferedWriter = new BufferedWriter(out);
-			myBufferedWriter.write(format.format(t));
-			myBufferedWriter.write("\n");
-			myBufferedWriter.close();	
-			return true;
-		} catch(IOException e) {
-			e.printStackTrace();
-			return false;
-		}
+		if(out != null && t != null){
+		
+			try {
+				BufferedWriter myBufferedWriter = new BufferedWriter(out);
+				myBufferedWriter.write(format.format(t));
+				myBufferedWriter.write("\n");
+				myBufferedWriter.close();	
+				return true;
+			} catch(IOException e) {
+				e.printStackTrace();
+				return false;
+			}
+		
+		}return false;
 	}
 	
 	

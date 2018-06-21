@@ -176,5 +176,17 @@ implements java.lang.Comparable<Person> {
 		return "No Date avaible";
 	}
 	
+	public String getBookingsString() {
+		
+		if(bookings != null) {
+			String tempString ="";
+			
+			for (Booking booking : bookings) {
+				tempString += "- " + booking.getBookingNo() + " -";
+			}
+			return tempString;
+		} return "no Bookings available";
+	}
+	
 	
 }

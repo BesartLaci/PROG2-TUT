@@ -1,6 +1,8 @@
 package SampleExamBooking;
 
 import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -90,9 +92,61 @@ public class Applikation {
 		b2 = new Booking(random.nextInt(1000));
 		b3 = new Booking(random.nextInt(1000));
 		b4 = new Booking(random.nextInt(1000));
-		b5 = new Booking(random.nextInt(1000));
+		b5 = new Booking(random.nextInt(1000));		
+				
+		c1 = new Customer("Customer01", new Date(), random.nextInt(1000));
+		c2 = new Customer("Customer02", new Date(), random.nextInt(1000));
+		c3 = new Customer("Customer03", new Date(), random.nextInt(1000));
 		
+		cca1 = new CallCenterAgent("Agent01", new Date(), Integer.MAX_VALUE - random.nextInt(Integer.MAX_VALUE)+1000);
+		cca2 = new CallCenterAgent("Agent02", new Date(), Integer.MAX_VALUE - random.nextInt(Integer.MAX_VALUE)+1000);
 		
+		persons = new ArrayList<Person>();
+		
+		persons.add(c1);
+		persons.add(c2);
+		persons.add(c3);
+		persons.add(cca1);
+		persons.add(cca2);
+		
+		c1.addBooking(b1);
+		c2.addBooking(b2);
+		c1.addBooking(b4);
+		c2.addBooking(b5);
+		c3.addBooking(b3);
+		
+		cca1.addBooking(b1);
+		cca1.addBooking(b2);
+		cca1.addBooking(b3);
+		cca2.addBooking(b4);		
+		cca2.addBooking(b5);
+		
+		pc = new PersonComparator();
+		persons.sort(pc);
+		
+		pf = new PersonFormatter();
+		
+		try {							
+					
+			for (Person tempPerson: persons){
+
+				if(tempPerson!= null){					
+						
+					fw = new FileWriter("SortedListOfPersons.txt", true);					
+					mfw = new MyFileWriter<Person>(fw, pf);
+					
+					if(mfw.put(tempPerson)) System.out.println("add new Person"+tempPerson.toString());
+					//mfw.put(tempPerson);
+					fw.close();	
+									
+				}				
+			}			
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		
 		
 		
