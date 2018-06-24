@@ -102,7 +102,7 @@ public abstract class Offer {
 			this.dueDate = new Date();
 		}
 		else {
-			this.dueDate = new Date(dueDate);
+			this.dueDate = dueDate;
 		}
 		
 		//(dueDate == null)?this.dueDate = new Date:(dueDate.dateString().isEmpty())?this.dueDate = new Date: this.dueDate = dueDate;
@@ -156,7 +156,7 @@ public abstract class Offer {
 			this.startDate = new Date();
 		}
 		else {
-			this.startDate = new Date(startDate);
+			this.startDate = startDate;
 		}
 	}
 

@@ -91,7 +91,10 @@ public class Room {
 		
 		if(price > 0) {
 			this.price = price;
-		}else throw new IllegalArgumentException("the standard price must be > 0... your Input" + price);
+		}else {
+			throw new IllegalArgumentException("the standard price must be > 0... your Input" + price);
+			}
+		
 		
 	}
 	

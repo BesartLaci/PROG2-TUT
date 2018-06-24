@@ -1,6 +1,7 @@
 package SampleExamHotelBooking.entities;
 
 import java.util.HashSet;
+import java.util.Set;
 
 import SampleExamHotelBooking.provided.Location;
 
@@ -28,7 +29,7 @@ public class Hotel {
 	private int nrRooms;
 	
 	//the set of available rooms of this hotel
-	private java.util.Set<Room> rooms;
+	private Set<Room> rooms;
 
 
 	// Constructor
@@ -46,7 +47,9 @@ public class Hotel {
 			this.category = h.category;
 			this.loc = new Location(h.loc);
 			this.nrRooms = h.nrRooms;
-			this.rooms = new HashSet<Room>(h.rooms);
+			if(h.rooms != null) {this.rooms = new HashSet<Room>(h.rooms);} 
+			else{this.rooms = new HashSet<Room>();}
+			
 		}
 	}
 	
@@ -115,6 +118,13 @@ public class Hotel {
 		
 		if(r != null) return this.rooms.remove(r);
 		return false;
+	}
+	
+	
+	public Set<Room> getRooms(){
+		
+		if(rooms == null) return new HashSet<Room>();
+		return rooms;
 	}
 
 

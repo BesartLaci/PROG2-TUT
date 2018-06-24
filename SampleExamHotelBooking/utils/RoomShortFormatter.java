@@ -17,7 +17,12 @@ public class RoomShortFormatter implements Formatter<Room> {
 	Specified by:
 	    format in interface Formatter<Room> 
 	 */
-	public java.lang.String format(Room t){
+	public String format(Room t){
+		
+		if(t == null) return String.format("\t-this Room == NULL");
+		
+		return String.format("\n\tRoom -> " + t.toString())
+				+String.format("\n\tSize ->" + t.getSize()+"\tPrice -> " + t.getPrice());
 		
 	}
 

@@ -21,6 +21,7 @@ public class PromotionOffer extends Offer {
 		
 		double tempPrice = ((getRoom().getPrice()/100)*(getDueDate().julianDayNumber() - getStartDate().julianDayNumber()))*1.2;
 		return (int)(tempPrice-100);
+		//return 500;
 	}
 
 }

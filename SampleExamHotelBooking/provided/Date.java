@@ -1,10 +1,12 @@
 package SampleExamHotelBooking.provided;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
  * 
  * @author TeM
+ * @author JS
  *
  */
 public class Date implements java.lang.Comparable<Date> {
@@ -29,10 +31,6 @@ public class Date implements java.lang.Comparable<Date> {
 	 */
 	public Date() {
 		// TODO Auto-generated constructor stub
-	}
-
-	public Date(int d, int m, int y) {
-		setJulian(julianDayNumber(d, m, y));
 	}
 
 	/**
@@ -350,6 +348,7 @@ public class Date implements java.lang.Comparable<Date> {
 	/**
 	 * 
 	 * @return true if this date was modified during the operation, false otherwise
+	 * @throws IOException 
 	 */
 	public boolean scan() {
 		Scanner scan = new Scanner(System.in);
